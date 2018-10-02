@@ -2,6 +2,7 @@ body, html {
     width: 100%;
     height: 100%;
     margin: 0;
+    font-size: 18px;
 }
 
 /*navbar styling*/
@@ -73,9 +74,22 @@ li a:hover {
 .postContent {
     width: 97%;
     border: 1px solid black;
+    padding: 10px;
 }
 
 .postContent > img {
-    width: 30px;
-    height: 30px;    
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.postContent > h2 {
+    font-size: 1.2em;
+    padding-left: 2%;
+    float: left;
+}
+
+.postContent > p {
+    clear: left;
 }
