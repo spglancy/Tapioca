@@ -12,6 +12,9 @@ nav {
 }
 
 ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -27,12 +30,68 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    padding: 18px 15px;
+}
+
+
+li > form > input {
+    width: 175px;
+    height: 25px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+li > .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 2px;
+    padding: 0;
+}
+
+li img:hover {
+    cursor: pointer;
+}
+
+li div:hover {
+    cursor: pointer;
 }
 
 li a:hover {
     background-color: #111;
+}
+
+ li .userActions:hover {
+    background-color: #333;
+}
+
+#dropdownClosed {
+    display: none;
+    position: absolute;
+}
+
+#dropdownOpen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    list-style-type: none;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.logo {
+    width: 250px;
+    height: 50px;
+    padding: 0;
+    margin-top: 3px;
 }
 
 /* grid setup */
@@ -58,7 +117,6 @@ li a:hover {
 /* allows scrolling through posts */
 .feed {
     grid-area: a;
-    border: 1px solid black;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -75,6 +133,7 @@ li a:hover {
     width: 97%;
     border: 1px solid black;
     padding: 10px;
+    margin: 10px;
 }
 
 .postContent > img {
