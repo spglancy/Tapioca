@@ -82,9 +82,9 @@ li a:hover {
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-areas: 'n n n n'
-                         'f m o t';
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-areas: 'n n n'
+                         'f m t';
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 55px 1fr;
     grid-gap: 5px;
 }
@@ -103,10 +103,10 @@ li a:hover {
     border: 1px solid black;
 }
 
-.other {
+/* .other {
     grid-area: o;
     border: 1px solid black;
-}
+} */
 
 .topics {
     grid-area: t;
