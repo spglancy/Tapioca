@@ -10,6 +10,11 @@ const postController = require('./controllers/postController');
 
 app.use(express.static(__dirname + '/public'));
 
+mongoose.connect( config.mongoURL, { useNewUrlParser: true })
+.catch(err =>{
+    throw err;
+})
+
 /**
  * Configuring bodyparser.
  */
@@ -20,9 +25,7 @@ app.use(methodOverride('_method'));
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-app.get('/', (req, res) => {
-    res.render('home');
-})
+app.use('/', postController);
 
 app.get('*', function (req, res) {
 	res.send({

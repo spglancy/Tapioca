@@ -6,13 +6,13 @@ body, html {
 }
 
 /* nav styling */
-nav {
+.homeContainer nav {
     grid-area: n;
     margin: 0;
     height: 50px;
 }
 
-ul {
+.homeContainer ul {
     height: 50px;
     display: flex;
     justify-content: space-around;
@@ -24,11 +24,11 @@ ul {
     background-color: #3399ff;
 }
 
-li {
+.homeContainer li {
     float: left;
 }
 
-li a {
+.homeContainer li a {
     display: block;
     color: white;
     text-align: center;
@@ -36,13 +36,13 @@ li a {
     padding: 18px 15px;
 }
 
-li > h1 {
+.homeContainer li > h1 {
     color: white;
     letter-spacing: 1px;
 }
 
 
-li > form > input {
+.homeContainer li > form > input {
     width: 175px;
     height: 25px;
     border-radius: 10px;
@@ -51,7 +51,7 @@ li > form > input {
     font-size: 14px;
 }
 
-li > .avatar {
+.homeContainer li > .avatar {
     width: 44px;
     height: 44px;
     border-radius: 100%;
@@ -59,19 +59,19 @@ li > .avatar {
     padding: 0;
 }
 
-li img:hover {
+.homeContainer li img:hover {
     cursor: pointer;
 }
 
-li div:hover {
+.homeContainer li div:hover {
     cursor: pointer;
 }
 
-li a:hover {
+.homeContainer li a:hover {
     cursor: pointer;
 }
 
- li .userActions:hover {
+.homeContainer li .userActions:hover {
     background-color: #3399ff;
 }
 
@@ -112,3 +112,39 @@ li a:hover {
     grid-area: t;
     border: 1px solid black;
 }
+
+/*
+*
+*
+Start New-post view styling
+*
+*
+ */
+
+ .postForm {
+     display: grid;
+     height: 100%;
+     width: 100%;
+     grid-template-columns: 1fr, 1fr, 1fr;
+     grid-template-rows: 50px, 2fr, 1fr;
+     grid-template-areas: 'n n n'
+                          'f c d'
+                          'f t t';
+ }
+
+ /* friends, nav already defined */
+
+ .content {
+     border: 1px solid black;
+     grid-area: c;
+ }
+
+ .description {
+     border: 1px solid black;
+     grid-area: d;
+ }
+
+ .topicSelection {
+     border: 1px solid black;
+     grid-area: t;
+ }
