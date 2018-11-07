@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('*', function (req, res) {
-	res.status(404).send({
+	res.send({
 		message: 'This endpoint does not exist',
 		error: 404,
 	}, 404);
