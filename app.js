@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const config = require('./config.js');
+const commentController = require('./controllers/commentController');
+const postController = require('./controllers/postController');
 
 app.use(express.static(__dirname + '/public'));
 
