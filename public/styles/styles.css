@@ -152,6 +152,10 @@ Start New-post view styling
     padding: 0;
 }
 
+.content figcaption {
+    
+}
+
 .content > input {
     width: 85%;
     height: 5%;
