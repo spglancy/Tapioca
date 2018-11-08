@@ -30,10 +30,8 @@ postRoutes.post('/posts', (req, res) => {
 
 postRoutes.get('/posts/:id', (req, res) => {
     Post.findById(req.params.id).then((post) => {
-        Comment.find({
-            postId: req.params.id
-        }).then(comment =>
-            res.render('singlepost', {
+        Comment.find( {postId: req.params.id} ).then(comment =>
+            res.render('post-view', {
                 post: post,
                 comment: comment,
                 postId: req.params.id
@@ -41,6 +39,15 @@ postRoutes.get('/posts/:id', (req, res) => {
     }).catch((err) => {
         console.log(err.message);
     })
+})
+
+postRoutes.delete('/posts/:id', (req, res) => {
+    console.log(`delete ${req.params.id} `)
+    Post.findByIdAndRemove(req.params.id).then((post) => {
+            res.redirect('/');
+        }).catch((err) => {
+            console.log(er.message);
+        })
 })
 
 module.exports = postRoutes;
