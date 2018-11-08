@@ -21,7 +21,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #3399ff;
+    background-color: #77C4D3;
 }
 
 li {
@@ -72,7 +72,7 @@ li a:hover {
 }
 
 li .userActions:hover {
-    background-color: #3399ff;
+    background-color: #77C4D3;
 }
 
 /* end nav styling */
