@@ -39,7 +39,7 @@
 
 
 ## models
-* user
-* post
-* intrest
+* ~user~
+* ~post~
+* interest
 * comment
