@@ -22,7 +22,7 @@ postRoutes.get('/post-new', (req,res) => {
 postRoutes.post('/posts', (req, res) => {
     Post.create(req.body).then((post) => {
         console.log(post)
-        res.redirect(`/${post._id}`) // Redirect to post/:id
+        res.redirect(`/posts/${post._id}`) // Redirect to post/:id
     }).catch((err) => {
         console.log(err.message)
     })
