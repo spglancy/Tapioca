@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const post = mongoose.model('post', {
-  user: String,
+  // user: String,
   description: String,
   content: String
 });

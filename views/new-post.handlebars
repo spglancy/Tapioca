@@ -2,16 +2,23 @@
     <div class="nav">
         {{>nav}}
     </div>
-    <div class="content">
-        <img></img>
-        
-    </div>
-    <div class="description">
-
-    </div>
-    <div class="topicSelection">
-
-    </div>
+    <form action="/posts" method="post">
+        <div class="content">
+            <figure>
+                <img src="/assets/blankUser.png"></img>
+                <figcaption>
+                    Upload a Photo
+                </figcaption>
+            </figure>
+            <input type="text" name="content" value="">
+        </div>
+        <div class="description">
+            <textarea name="description" rows="20" cols="100"></textarea>
+        </div>
+        <div class="topicSelection">
+            <button type="submit" name="post">Submit</button>
+        </div>
+    </form>
     <div class="friends">
 
     </div>
