@@ -6,13 +6,13 @@ body, html {
 }
 
 /* nav styling */
-.homeContainer nav {
+nav {
     grid-area: n;
     margin: 0;
     height: 50px;
 }
 
-.homeContainer ul {
+ul {
     height: 50px;
     display: flex;
     justify-content: space-around;
@@ -24,11 +24,11 @@ body, html {
     background-color: #3399ff;
 }
 
-.homeContainer li {
+li {
     float: left;
 }
 
-.homeContainer li a {
+li a {
     display: block;
     color: white;
     text-align: center;
@@ -36,13 +36,13 @@ body, html {
     padding: 18px 15px;
 }
 
-.homeContainer li > h1 {
+li > h1 {
     color: white;
     letter-spacing: 1px;
 }
 
 
-.homeContainer li > form > input {
+li > form > input {
     width: 175px;
     height: 25px;
     border-radius: 10px;
@@ -51,7 +51,7 @@ body, html {
     font-size: 14px;
 }
 
-.homeContainer li > .avatar {
+li > .avatar {
     width: 44px;
     height: 44px;
     border-radius: 100%;
@@ -59,19 +59,19 @@ body, html {
     padding: 0;
 }
 
-.homeContainer li img:hover {
+li img:hover {
     cursor: pointer;
 }
 
-.homeContainer li div:hover {
+li div:hover {
     cursor: pointer;
 }
 
-.homeContainer li a:hover {
+li a:hover {
     cursor: pointer;
 }
 
-.homeContainer li .userActions:hover {
+li .userActions:hover {
     background-color: #3399ff;
 }
 
@@ -125,8 +125,9 @@ Start New-post view styling
      display: grid;
      height: 100%;
      width: 100%;
-     grid-template-columns: 1fr, 1fr, 1fr;
-     grid-template-rows: 50px, 2fr, 1fr;
+     grid-gap: 5px;
+     grid-template-columns: 1fr 3fr 2fr;
+     grid-template-rows: 50px 2fr 1fr;
      grid-template-areas: 'n n n'
                           'f c d'
                           'f t t';
@@ -147,4 +148,6 @@ Start New-post view styling
  .topicSelection {
      border: 1px solid black;
      grid-area: t;
+     display: flex;
+     justify-content: space-between;
  }
