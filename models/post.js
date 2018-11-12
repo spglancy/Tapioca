@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const post = mongoose.model('post', {
     user: String,
     description: String,
-    content: String
+    content: String,
+    imageRoute: String
 });
 
 module.exports = post;

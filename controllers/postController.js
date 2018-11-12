@@ -3,6 +3,7 @@ const express = require('express');
 const postRoutes = express.Router();
 const User = require('../models/user.js');
 const Comment = require('../models/comment.js');
+const shortId = require('short-id');
 
 postRoutes.get('/', (req, res) => {
     Post.find().then((post) => {
@@ -19,7 +20,14 @@ postRoutes.get('/post-new', (req,res) => {
     res.render('new-post');
 })
 
+
+
 postRoutes.post('/posts', (req, res) => {
+    
+    if (!req.files) {
+      return res.status(400).send('No files were selected')
+    }
+    
     Post.create(req.body).then((post) => {
         console.log(post)
         res.redirect(`/posts/${post._id}`) // Redirect to post/:id
