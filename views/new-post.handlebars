@@ -1,8 +1,22 @@
+<!--
+
+<div class="upload-form-container">
+  <form class="upload-form" action='/posts' method='post' enctype="multipart/form-data">
+    <div class="upload-form-div-name">
+      <input class="upload-form-input-name" type='text' placeholder='name' name='name'>
+    </div>
+    <div><label class="upload-form-image-label" for="image-input">Chose Image</label></div>
+    <div><input class="upload-form-image-input" id="image-input" type='file' placeholder='image' name='image'></div>
+    <div><button type='submit'>Submit</button></div>
+  </form>
+</div>
+-->
+
 <div class="postForm">
     <div class="nav">
         {{>nav}}
     </div>
-    <form action="/posts" method="post">
+    <form action="/posts" method="post" enctype="multipart/form-data">
         <div class="content">
             <figure>
                 <img src="/assets/blankUser.png">
@@ -10,7 +24,7 @@
                     Upload a Photo
                 </figcaption>
             </figure>
-            <input type="file" name="imageRoute" id="image-input" type='file' placeholder='image'>
+            <input type="file" name="image" id="image-input" type='file' placeholder='image'>
             <input type="text" name="content" value="">
         </div>
         <div class="description">
