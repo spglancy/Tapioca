@@ -47,9 +47,12 @@ postRoutes.post('/posts', (req, res) => {
         }
         
     })
+    console.log(req.body)
 
     Post.create(req.body).then((post) => {
         post.imageRoute = filePath;
+//        let selector = req.body.querySelectorAll('li');
+//        console.log(req);
         console.log(post)
         post.save();
         res.redirect(`/posts/${post._id}`) // Redirect to post/:id
