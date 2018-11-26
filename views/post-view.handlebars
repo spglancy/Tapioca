@@ -3,10 +3,12 @@
     <p class="post-content">{{post.content}}</p>
 
     <p class="post-description">{{post.description}}</p>
-    
+
+    <img src="{{post.imageRoute}}">
+
     <p><form method="POST" action="/posts/{{post._id}}?_method=DELETE">
     <button class="btn btn-primary" type="submit">Delete</button>
     </form>
-    
+
     </p>
 </div>
