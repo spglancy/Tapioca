@@ -3,14 +3,18 @@ const app = express();
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const authController = require('./controllers/authController');
+const tokenVerify = require('./controllers/verifyToken');
 const mongoose = require('mongoose');
 const config = require('./config.js');
 const fileUpload = require('express-fileupload');
 const commentController = require('./controllers/commentController');
 const postController = require('./controllers/postController');
+var cookieParser = require('cookie-parser');
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.static('uploads'))
+app.use(express.static('uploads'));
+app.use(cookieParser());
 
 mongoose.connect( config.mongoURL, { useNewUrlParser: true })
 .catch(err =>{
@@ -30,6 +34,8 @@ app.set('view engine', 'handlebars');
 app.use(fileUpload());
 
 app.use('/', postController);
+app.use('/api/auth', authController);
+
 
 app.get('*', function (req, res) {
 	res.send({
