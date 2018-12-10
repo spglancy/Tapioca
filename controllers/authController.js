@@ -30,25 +30,45 @@ router.get('/login', (req, res) => {
 router.post('/register', (req, res) => {
   var user = new User(req.body);
   user.save().then((user) => {
-      // var token = jwt.sign({ _id: user._id }, config.SECRET, { expiresIn: "60 days" });
-      // res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
+      var token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
+      res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
       res.redirect('/');
   });
   });
 
+router.get('/logout', (req, res) => {
+      res.clearCookie('nToken');
+      res.redirect('/');
+    });
 
-/**
- * Logs the user in.
- */
-
-router.post('/', (req, res) => {
-  User.findOne({ email: req.body.email }, (err, user) => {
-    if (err) return res.status(500).send('Error on the server.');
-    if (!user) return res.status(404);
-    var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-    if (!passwordIsValid) return res.status(401);
-  });
-  res.redirect(`/`);
+router.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  // Find this user name
+  User.findOne({ email }, "email password")
+    .then(user => {
+      if (!user) {
+        // User not found
+        return res.status(401).send({ message: "Wrong Email or Password" });
+      }
+      // Check the password
+      user.comparePassword(password, (err, isMatch) => {
+        if (!isMatch) {
+          // Password does not match
+          return res.status(401).send({ message: "Wrong Email or Password" });
+        }
+        // Create a token
+        const token = jwt.sign({ _id: user._id, email: user.email, name: user.name }, process.env.SECRET, {
+          expiresIn: "60 days"
+        });
+        // Set a cookie and redirect to root
+        res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
+        res.redirect("/");
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 module.exports = router;
