@@ -5,7 +5,6 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const authController = require('./controllers/authController');
-const tokenVerify = require('./controllers/verifyToken');
 const mongoose = require('mongoose');
 const config = require('./config.js');
 const fileUpload = require('express-fileupload');
