@@ -31,7 +31,7 @@ router.post('/register', (req, res) => {
   user.save().then((user) => {
       var token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
       res.cookie('nToken', token, { maxAge: 900000, httpOnly: true });
-      res.redirect('/');
+      res.redirect('/feed');
   });
   });
 
@@ -62,7 +62,7 @@ router.post("/login", (req, res) => {
         });
         // Set a cookie and redirect to root
         res.cookie("nToken", token, { maxAge: 900000, httpOnly: true });
-        res.redirect("/");
+        res.redirect("/feed");
       });
     })
     .catch(err => {

@@ -5,7 +5,11 @@ const User = require('../models/user.js');
 const Comment = require('../models/comment.js');
 const shortid = require('short-id');
 
-postRoutes.get('/', (req, res) => {
+postRoutes.get('/', (req,res) => {
+    res.redirect('/api/auth/signup')
+})
+
+postRoutes.get('/feed', (req, res) => {
     Post.find().then((post) => {
         res.render('home', {
             post: post
@@ -39,13 +43,13 @@ postRoutes.post('/posts', (req, res) => {
     const filePath = `/${shortid.generate()}.${fileExtsion}`;
     // Define the upload path
     const uploadPath = `./uploads/${filePath}`;
-    
+
     imageFile.mv(uploadPath, (err) => {
         if(err){
             console.log(err);
             return res.status(500);
         }
-        
+
     })
     console.log(req.body)
 
